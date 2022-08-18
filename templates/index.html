@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+
+
+{% block body %}
+    <h1 id='loading' >LOADING...... PLEASE WAIT</h1>
+    <div id="autocomplete"></div>
+    <h1 id='pleasespeak' style="position: absolute; z-index: 10000; top:50%;left: 50%;">PLEASE SPEAK</h1>
+    <h1 id='title' class="neon">NE<span class="flicker-slow">W</span>
+        <span style="position: relative;"><span class='rotateclass'>S</span></span><span class="flicker-fast">OPO</span>LIS</h1>
+    <div id="options1">
+        <p><label>FROM<input id='fromdate' form="searchboxform" type="date" name="fromdate" value="2012-01-01"></input></label></p>
+        <p><label>TO<input  id='todate'  form="searchboxform" type="date" name="todate" value="2022-04-01"></input></label></p>
+        <p><label>BOOLEAN SEARCH<input  form="searchboxform" type="checkbox" name="boolean"></label></p>
+        <p><label>OCR SEARCH<input  form="searchboxform" type="file" name="image"></label></p>
+        <p><button type="button"  form="searchboxform" id="speech">SPEECH SEARCH</button></p>
+        <p><button type="button"  form="searchboxform" id="covid">COVID TOPIC MODELLING</button></p>
+        <p><button type="button"  form="searchboxform" id="finance">FINANCE TOPIC MODELLINGs</button></p>
+        <p><label>Offset</label><input type="number" form="searchboxform" value= 0 name='offset' id='offset' style="width: 20%;"></p>
+        </div><div id="options2">
+        <h3>CATEGORIES</h3>
+        <p><label>NATIONAL<input  form="searchboxform" type="checkbox" name="national"></label></p>
+        <p><label>INTERNATIONAL<input  form="searchboxform" type="checkbox" name="international"></label></p>
+        <p><label>SPORT<input  form="searchboxform" type="checkbox" name="sport"></label></p>
+        <p><label>BUSINESS<input  form="searchboxform" type="checkbox" name="business"></label></p>
+        <p><label>MISC<input  form="searchboxform" type="checkbox" name="frontpage"></label></p>
+        <p><button id="trendingtopics">Topic Modelling</button></p>
+        <p><button id="trendingheadlines">Trending Headlines</button></p>
+        </div>  
+    <div id="searchboxdiv">
+        <form action="/send_query" method="POST" id="searchboxform" enctype="multipart/form-data">
+            <div class="search-wrapper">
+                <div class="input-holder">
+                    <input type="text" class="search-input" placeholder="enter your query" name="query" id="queryinput" ></input>
+                  <button type="submit" class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+                </div>
+                <span class="close" onclick="searchToggle(this, event);"></span>
+              </div>
+            <div style="position: relative;">
+            
+        </div>
+        </form>
+        
+    </div>
+    <div>
+        <div id="results">
+            
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+
+

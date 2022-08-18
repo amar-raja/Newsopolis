@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+
+{% block body %}
+<div class="resultcontainer">
+
+    {% for item in data %}
+    <div class="resultdiv">
+        <h1 style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{item.title}}</h1>
+        <h3>Date: {{item.date}}</h3>
+        <h3 style="text-align: center;">{{item.doc}}</h3>
+        
+    </div>
+    {% endfor %}
+    
+</div>
+{% endblock %}
